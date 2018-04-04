@@ -9,6 +9,10 @@ function addMapping(router, mapping) {
             var path = url.substring(5);
             router.post(path, mapping[url]);
             console.log(`register URL mapping: POST ${path}`);
+        } else if (url.startsWith('OPTIONS ')) {
+            var path = url.substring(5);
+            router.options(path, mapping[url]);
+            console.log(`register URL mapping: POST ${path}`);
         } else {
             console.log(`invalid URL: ${url}`);
         }
